@@ -59,10 +59,10 @@ export default function ReviewForm({ onSubmit }: ReviewFormProps) {
   }
 
   return (
-    <div className="bg-gray-900 border border-gray-700 rounded-xl p-6">
+    <div className="bg-gray-800 border border-gray-700 rounded-xl p-6">
       <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
         <svg
-          className="w-5 h-5 text-indigo-400"
+          className="w-5 h-5 text-gray-400"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -78,7 +78,7 @@ export default function ReviewForm({ onSubmit }: ReviewFormProps) {
       </h3>
 
       {submitted && (
-        <div className="mb-4 p-3 bg-green-900/50 border border-green-700 rounded-lg text-green-400 text-sm flex items-center gap-2">
+        <div className="mb-4 p-3 bg-gray-700/50 border border-gray-600 rounded-lg text-gray-300 text-sm flex items-center gap-2">
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
             <path
               fillRule="evenodd"
@@ -94,7 +94,7 @@ export default function ReviewForm({ onSubmit }: ReviewFormProps) {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-300 mb-1">
-              Seu nome <span className="text-red-400">*</span>
+              Seu nome <span className="text-gray-500">*</span>
             </label>
             <input
               type="text"
@@ -102,7 +102,7 @@ export default function ReviewForm({ onSubmit }: ReviewFormProps) {
               onChange={(e) => setAuthor(e.target.value)}
               placeholder="Ex: João Silva"
               required
-              className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-indigo-500 transition-colors"
+              className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-green-500 transition-colors"
             />
           </div>
           <div>
@@ -112,7 +112,7 @@ export default function ReviewForm({ onSubmit }: ReviewFormProps) {
             <select
               value={platform}
               onChange={(e) => setPlatform(e.target.value)}
-              className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors"
+              className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-green-500 transition-colors"
             >
               <option value="PC">PC</option>
               <option value="PS5">PS5</option>
@@ -130,13 +130,13 @@ export default function ReviewForm({ onSubmit }: ReviewFormProps) {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Resumo da sua experiência"
-            className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-indigo-500 transition-colors"
+            className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-green-500 transition-colors"
           />
         </div>
 
         <div>
           <label className="block text-sm font-medium text-gray-300 mb-1">
-            Sua avaliação <span className="text-red-400">*</span>
+            Sua avaliação <span className="text-gray-500">*</span>
           </label>
           <textarea
             value={body}
@@ -144,7 +144,7 @@ export default function ReviewForm({ onSubmit }: ReviewFormProps) {
             placeholder="Compartilhe sua experiência com o jogo..."
             required
             rows={4}
-            className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-indigo-500 transition-colors resize-none"
+            className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-green-500 transition-colors resize-none"
           />
         </div>
 
@@ -158,7 +158,7 @@ export default function ReviewForm({ onSubmit }: ReviewFormProps) {
             <span className="text-gray-500 text-xs ml-1">/100</span>
           </label>
           <div className="flex items-center gap-3">
-            <span className="text-xs text-red-400 font-bold">0</span>
+            <span className="text-xs text-gray-500 font-bold">0</span>
             <input
               type="range"
               min={0}
@@ -169,12 +169,12 @@ export default function ReviewForm({ onSubmit }: ReviewFormProps) {
               style={{
                 background: `linear-gradient(to right, ${
                   score >= 75 ? "#22c55e" : score >= 50 ? "#eab308" : "#ef4444"
-                } ${score}%, #374151 ${score}%)`,
+                } ${score}%, #4b5563 ${score}%)`,
               }}
             />
-            <span className="text-xs text-green-400 font-bold">100</span>
+            <span className="text-xs text-gray-500 font-bold">100</span>
           </div>
-          <div className="flex justify-between text-xs text-gray-600 mt-1">
+          <div className="flex justify-between text-xs text-gray-500 mt-1">
             <span>Péssimo</span>
             <span>Ruim</span>
             <span>Regular</span>
@@ -185,7 +185,7 @@ export default function ReviewForm({ onSubmit }: ReviewFormProps) {
 
         <button
           type="submit"
-          className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-lg transition-colors text-sm"
+          className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2.5 rounded-lg transition-colors text-sm"
         >
           Publicar Avaliação
         </button>
