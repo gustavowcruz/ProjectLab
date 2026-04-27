@@ -37,28 +37,68 @@ export default function GamePage({ game }: GamePageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-[#0d0d1a] text-white">
+    <div className="min-h-screen bg-gray-900 text-white">
       {/* Top nav bar */}
-      <nav className="bg-[#0a0a14] border-b border-gray-800 px-4 py-3">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 bg-indigo-600 rounded flex items-center justify-center text-white text-xs font-black">
-              PL
-            </div>
-            <span className="font-bold text-white text-sm hidden sm:block">
-              ProjectLab
+      <nav className="bg-gray-800 shadow-2xl shadow-white/10 sticky top-0 z-50 px-4 py-2">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+          {/* Logo */}
+          <div className="flex items-center gap-3 flex-shrink-0">
+            
+            <span className="font-black text-white text-xl hidden sm:block bg-green-600 px-3 py-1.5 rounded-md">
+              GameLog
             </span>
+            <div className="hidden sm:block w-px h-6 bg-gray-700" />
           </div>
-          <div className="flex items-center gap-4 text-xs text-gray-400">
-            <a href="#" className="hover:text-white transition-colors">
+
+          {/* Search Bar */}
+          <div className="flex-1 max-w-md relative">
+            <svg
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-600 pointer-events-none"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+            <input
+              type="text"
+              placeholder="Buscar jogos..."
+              className="w-full bg-white border-0 rounded-lg px-4 py-2.5 pl-10 text-base text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 font-medium"
+            />
+          </div>
+
+          {/* Navigation Links */}
+          <div className="flex items-center gap-6 text-base font-bold text-white">
+            <a
+              href="#"
+              className="hover:text-white transition-colors duration-200 pb-1 border-b-2 border-transparent hover:border-white"
+            >
               Jogos
             </a>
-            <a href="#" className="hover:text-white transition-colors">
+            <a
+              href="#"
+              className="hover:text-white transition-colors duration-200 pb-1 border-b-2 border-transparent hover:border-white"
+            >
               Reviews
             </a>
-            <a href="#" className="hover:text-white transition-colors">
+            <a
+              href="#"
+              className="hover:text-white transition-colors duration-200 pb-1 border-b-2 border-transparent hover:border-white"
+            >
               Listas
             </a>
+          </div>
+
+          {/* Profile Circle */}
+          <div className="w-9 h-9 bg-green-500 rounded-full flex-shrink-0 cursor-pointer hover:ring-2 hover:ring-green-300 transition-all flex items-center justify-center">
+            <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+            </svg>
           </div>
         </div>
       </nav>
@@ -75,9 +115,9 @@ export default function GamePage({ game }: GamePageProps) {
             priority
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-indigo-900 via-purple-900 to-[#0d0d1a]" />
+          <div className="w-full h-full bg-linear-to-br from-indigo-900 via-purple-900 to-[#0d0d1a]" />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d1a] via-[#0d0d1a]/40 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-white via-white/40 to-transparent" />
       </div>
 
       {/* Main Content */}
@@ -85,8 +125,8 @@ export default function GamePage({ game }: GamePageProps) {
         {/* Game Header Card */}
         <div className="flex flex-col sm:flex-row gap-6 mb-8">
           {/* Cover */}
-          <div className="flex-shrink-0">
-            <div className="w-36 h-48 sm:w-40 sm:h-52 rounded-xl overflow-hidden border-2 border-gray-700 shadow-2xl bg-gray-900 relative">
+          <div className="shrink-0">
+            <div className="w-36 h-48 sm:w-40 sm:h-52 rounded-xl overflow-hidden border-2 border-gray-400 shadow-2xl bg-gray-200 relative">
               {!coverError ? (
                 <Image
                   src={game.coverImage}
@@ -96,7 +136,7 @@ export default function GamePage({ game }: GamePageProps) {
                   onError={() => setCoverError(true)}
                 />
               ) : (
-                <div className="w-full h-full bg-gradient-to-b from-indigo-800 to-purple-900 flex flex-col items-center justify-center p-3 text-center">
+                <div className="w-full h-full bg-linear-to-b from-gray-400 to-gray-600 flex flex-col items-center justify-center p-3 text-center">
                   <span className="text-white font-black text-xl leading-tight">
                     {game.title}
                   </span>
@@ -114,16 +154,16 @@ export default function GamePage({ game }: GamePageProps) {
               {game.genres.map((genre) => (
                 <span
                   key={genre}
-                  className="text-xs bg-indigo-900/60 text-indigo-300 border border-indigo-700/50 px-2 py-0.5 rounded-full"
+                  className="text-xs bg-gray-800/60 text-gray-300 border border-gray-700/50 px-2 py-0.5 rounded-full"
                 >
                   {genre}
                 </span>
-              ))}
+              ))}  
             </div>
             <h1 className="text-3xl sm:text-4xl font-black text-white leading-tight">
               {game.title}
             </h1>
-            <h2 className="text-xl text-indigo-400 font-semibold mb-2">
+            <h2 className="text-xl text-gray-300 font-semibold mb-2">
               {game.subtitle}
             </h2>
             <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-400 mb-3">
@@ -144,7 +184,7 @@ export default function GamePage({ game }: GamePageProps) {
               {game.platforms.map((p) => (
                 <span
                   key={p}
-                  className="text-xs bg-gray-800 text-gray-300 border border-gray-700 px-2.5 py-1 rounded-lg"
+                  className="text-xs bg-gray-600 text-gray-100 border border-gray-500 px-2.5 py-1 rounded-lg"
                 >
                   {p}
                 </span>
@@ -154,8 +194,8 @@ export default function GamePage({ game }: GamePageProps) {
         </div>
 
         {/* Scores Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-          <div className="bg-gray-900 border border-gray-800 rounded-xl p-5 flex items-center gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+          <div className="bg-gray-800 border border-gray-700 rounded-xl p-5 flex items-center gap-4">
             <ScoreBadge score={game.criticScore} size="lg" />
             <div>
               <div className="text-white font-bold text-base">
@@ -167,19 +207,7 @@ export default function GamePage({ game }: GamePageProps) {
             </div>
           </div>
 
-          <div className="bg-gray-900 border border-gray-800 rounded-xl p-5 flex items-center gap-4">
-            <ScoreBadge score={game.userScore} size="lg" />
-            <div>
-              <div className="text-white font-bold text-base">
-                Nota dos Usuários
-              </div>
-              <div className="text-gray-400 text-xs mt-0.5">
-                {game.totalReviews.toLocaleString("pt-BR")} avaliações no total
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-gray-900 border border-gray-800 rounded-xl p-5 flex items-center gap-4">
+          <div className="bg-gray-800 border border-gray-700 rounded-xl p-5 flex items-center gap-4">
             <ScoreBadge score={avgScore} size="lg" />
             <div>
               <div className="text-white font-bold text-base">
@@ -193,7 +221,7 @@ export default function GamePage({ game }: GamePageProps) {
         </div>
 
         {/* Score Distribution Bar */}
-        <div className="bg-gray-900 border border-gray-800 rounded-xl p-5 mb-8">
+        <div className="bg-gray-800 border border-gray-700 rounded-xl p-5 mb-8">
           <h3 className="text-sm font-semibold text-gray-300 mb-3">
             Distribuição de notas
           </h3>
@@ -221,10 +249,10 @@ export default function GamePage({ game }: GamePageProps) {
                 reviews.length > 0 ? (count / reviews.length) * 100 : 0;
               return (
                 <div key={label} className="flex items-center gap-3">
-                  <span className="text-xs text-gray-400 w-36 flex-shrink-0">
+                  <span className="text-xs text-gray-400 w-36 shrink-0">
                     {label}
                   </span>
-                  <div className="flex-1 bg-gray-800 rounded-full h-2">
+                  <div className="flex-1 bg-gray-700 rounded-full h-2">
                     <div
                       className={`${color} h-2 rounded-full transition-all`}
                       style={{ width: `${pct}%` }}
@@ -240,7 +268,7 @@ export default function GamePage({ game }: GamePageProps) {
         </div>
 
         {/* Description */}
-        <div className="bg-gray-900 border border-gray-800 rounded-xl p-5 mb-8">
+        <div className="bg-gray-800 border border-gray-700 rounded-xl p-5 mb-8">
           <h3 className="text-base font-bold text-white mb-2">Sobre o Jogo</h3>
           <p className="text-gray-400 text-sm leading-relaxed">
             {game.description}
@@ -264,7 +292,7 @@ export default function GamePage({ game }: GamePageProps) {
                     e.target.value as "recent" | "score_asc" | "score_desc"
                   )
                 }
-                className="bg-gray-800 border border-gray-700 rounded-lg px-3 py-1.5 text-sm text-white focus:outline-none focus:border-indigo-500"
+                className="bg-gray-800 border border-gray-700 rounded-lg px-3 py-1.5 text-sm text-white focus:outline-none focus:border-gray-600"
               >
                 <option value="recent">Mais Recentes</option>
                 <option value="score_desc">Maior Nota</option>
@@ -272,7 +300,7 @@ export default function GamePage({ game }: GamePageProps) {
               </select>
               <button
                 onClick={() => setShowForm((prev) => !prev)}
-                className="bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold px-4 py-1.5 rounded-lg transition-colors flex items-center gap-1.5"
+                className="bg-gray-800 hover:bg-gray-700 text-white text-sm font-semibold px-4 py-1.5 rounded-lg transition-colors flex items-center gap-1.5"
               >
                 <svg
                   className="w-4 h-4"
@@ -329,10 +357,10 @@ export default function GamePage({ game }: GamePageProps) {
       </div>
 
       {/* Footer */}
-      <footer className="bg-[#0a0a14] border-t border-gray-800 py-6 text-center text-xs text-gray-600">
+      <footer className="bg-gray-800 border-t border-gray-700 py-6 text-center text-xs text-gray-400">
         <div className="max-w-6xl mx-auto px-4">
           <p>
-            © 2025 ProjectLab — Uma plataforma de críticas e avaliações de jogos
+            © 2025 Gamelog — Uma plataforma de críticas e avaliações de jogos
             eletrônicos
           </p>
         </div>
