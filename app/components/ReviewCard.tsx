@@ -7,10 +7,10 @@ interface ReviewCardProps {
 
 export default function ReviewCard({ review }: ReviewCardProps) {
   return (
-    <div className="bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-gray-600 transition-colors">
+    <div className="bg-gray-800 border border-gray-700 rounded-xl p-5 hover:border-gray-600 transition-colors">
       <div className="flex items-start gap-4">
         {/* Avatar */}
-        <div className="flex-shrink-0 w-11 h-11 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm">
+        <div className="flex-shrink-0 w-11 h-11 rounded-full bg-gradient-to-br from-gray-500 to-gray-700 flex items-center justify-center text-white font-bold text-sm">
           {review.avatar}
         </div>
 
@@ -19,20 +19,20 @@ export default function ReviewCard({ review }: ReviewCardProps) {
           <div className="flex items-center justify-between flex-wrap gap-2 mb-1">
             <div>
               <span className="text-white font-semibold">{review.author}</span>
-              <span className="ml-2 text-xs text-gray-500 bg-gray-800 px-2 py-0.5 rounded-full">
+              <span className="ml-2 text-xs text-gray-400 bg-gray-700 px-2 py-0.5 rounded-full">
                 {review.platform}
               </span>
             </div>
             <span className="text-xs text-gray-500">{review.date}</span>
           </div>
 
-          <h4 className="text-gray-100 font-semibold text-sm mb-2">
+          <h4 className="text-white font-semibold text-sm mb-2">
             {review.title}
           </h4>
           <p className="text-gray-400 text-sm leading-relaxed">{review.body}</p>
 
           {/* Footer */}
-          <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-800">
+          <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-700">
             <button className="text-xs text-gray-500 hover:text-gray-300 transition-colors flex items-center gap-1">
               <svg
                 className="w-3.5 h-3.5"

@@ -14,8 +14,8 @@ export const clairObscurData: GameData = {
   criticScore: 88,
   userScore: 91,
   totalReviews: 1247,
-  coverImage: "https://images.igdb.com/igdb/image/upload/t_cover_big/co8jni.jpg",
-  heroImage: "https://images.igdb.com/igdb/image/upload/t_screenshot_big/scf6od.jpg",
+  coverImage: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1903340/be3305b02d4db0dffa3458537118423bf2792d7e/header.jpg?t=1773676780",
+  heroImage: "https://www.comboinfinito.com.br/principal/wp-content/uploads/2025/03/clair-obscur-expedition-33-capa.jpg",
   screenshots: [
     "https://images.igdb.com/igdb/image/upload/t_screenshot_big/scf6od.jpg",
   ],
